@@ -21,6 +21,8 @@ struct process
   TAILQ_ENTRY(process) pointers;
 
   /* Additional fields here */
+  u23 remaining_burst_time;
+  u23 first_run;
   /* End of "Additional fields here" */
 };
 
@@ -160,7 +162,30 @@ int main(int argc, char *argv[])
   u32 total_response_time = 0;
 
   /* Your code here */
-  
+  int clock = data[0].arrival_time
+  struct process *cur;
+  for(int i = 0; i < size; i++){
+    cur = &data[i];
+    cur->first_run = false;
+    cur->remaining_burst_time=cur->burst_time
+    if(cur->arrival_time < clock){
+      clock = cur->arrival_time
+    }
+  }
+  int current_slice = 0;
+  bool complete = false;
+
+  while(!complete){
+    for(int i = 0; i<size; i++){
+      if(&data[i].arrival_time == current_time)
+      {
+        TAILQ_INSERT_TAIL(&list, &data[i], pointers);
+        total_waiting_time = &list[i].burst_time;
+      }
+    }
+    complete = true;
+  }
+
   /* End of "Your code here" */
 
   printf("Average waiting time: %.2f\n", (float)total_waiting_time / (float)size);
